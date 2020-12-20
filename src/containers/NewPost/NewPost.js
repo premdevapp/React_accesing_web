@@ -11,6 +11,10 @@ class NewPost extends Component {
     author: "Premnath",
   };
 
+  componentDidMount() {
+    console.log(this.props);
+  }
+
   postDataHandler = () => {
     const data = {
       title: this.state.title,
@@ -18,6 +22,7 @@ class NewPost extends Component {
       author: this.state.author,
     };
     axios.post("/posts", data).then((response) => {
+      this.props.history.push("/posts");
       console.log(response);
     });
   };

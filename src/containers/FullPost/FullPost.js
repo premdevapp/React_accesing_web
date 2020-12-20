@@ -19,12 +19,13 @@ class FullPost extends Component {
   }
 
   loadData() {
-    if (this.props.id) {
+    if (this.props.match.params.id) {
       if (
         !this.state.loadedPost ||
-        (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)
+        (this.state.loadedPost &&
+          this.state.loadedPost.id !== +this.props.match.params.id)
       ) {
-        axios.get(`/posts/${this.props.id}`).then((response) => {
+        axios.get(`/posts/${this.props.match.params.id}`).then((response) => {
           this.setState({ loadedPost: response.data });
           //console.log(response);
         });
