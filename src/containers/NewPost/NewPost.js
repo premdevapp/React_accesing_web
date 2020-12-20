@@ -8,7 +8,7 @@ class NewPost extends Component {
   state = {
     title: "",
     content: "",
-    author: "Max",
+    author: "Premnath",
     submitted: false,
   };
 
